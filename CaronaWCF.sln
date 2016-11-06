@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaronaWCF", "CaronaWCF\CaronaWCF.csproj", "{E4DBA765-AF6C-4870-9B12-A9DB37329A5A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E9786DD4-30C6-4DA5-A447-B7701F561F62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteServico", "TesteServico\TesteServico.csproj", "{7C545241-2186-4DBB-9BB5-DBD81B202AEB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E4DBA765-AF6C-4870-9B12-A9DB37329A5A} = {E4DBA765-AF6C-4870-9B12-A9DB37329A5A}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4DBA765-AF6C-4870-9B12-A9DB37329A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4DBA765-AF6C-4870-9B12-A9DB37329A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4DBA765-AF6C-4870-9B12-A9DB37329A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4DBA765-AF6C-4870-9B12-A9DB37329A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C545241-2186-4DBB-9BB5-DBD81B202AEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C545241-2186-4DBB-9BB5-DBD81B202AEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C545241-2186-4DBB-9BB5-DBD81B202AEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C545241-2186-4DBB-9BB5-DBD81B202AEB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

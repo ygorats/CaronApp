@@ -1,0 +1,23 @@
+<publishData>
+  <publishTarget publishUrl="http://localhost:55872/">
+    <file relUrl="ICarona.cs" publishTime="10/16/2016 13:28:47" />
+    <file relUrl="Carona.cs" publishTime="10/16/2016 13:23:10" />
+    <file relUrl="bin/CaronaWCF.dll.config" publishTime="10/16/2016 14:59:09" />
+    <file relUrl="CaronaWCF.csproj" publishTime="10/16/2016 14:56:38" />
+    <file relUrl="bin/CaronaWCF.pdb" publishTime="10/16/2016 15:48:27" />
+    <file relUrl="Web.config" publishTime="10/16/2016 14:59:09" />
+    <file relUrl="Properties/AssemblyInfo.cs" publishTime="10/16/2016 13:18:39" />
+    <file relUrl="App.config" publishTime="10/16/2016 14:59:09" />
+    <file relUrl="bin/CaronaWCF.dll" publishTime="10/16/2016 15:48:27" />
+    <file relUrl="CaronaWCF.csproj.user" publishTime="10/16/2016 15:47:26" />
+    <file relUrl="CaronaService.cs" publishTime="10/16/2016 15:33:02" />
+    <file relUrl="CaronaWCF.CaronaService.svc" publishTime="10/16/2016 15:48:29" />
+  </publishTarget>
+  <publishTarget publishUrl="http://localhost:8080/">
+    <file relUrl="CaronaWCF.CaronaService.svc" publishTime="10/16/2016 15:36:17" />
+    <file relUrl="bin/CaronaWCF.dll" publishTime="10/16/2016 15:33:16" />
+    <file relUrl="bin/CaronaWCF.dll.config" publishTime="10/16/2016 14:59:09" />
+    <file relUrl="Web.config" publishTime="10/16/2016 14:59:09" />
+    <file relUrl="bin/CaronaWCF.pdb" publishTime="10/16/2016 15:33:16" />
+  </publishTarget>
+</publishData>
