@@ -21,19 +21,22 @@ namespace CaronaWCF
             _secao = null;
         }
 
-        public string CadastreCarona(string descricao, string origem, string destino)
+        public string CadastreCarona(string descricao, string origem, string destino, DateTime horarioPartida, DateTime horarioChegada)
         {
             var origemCoordenadas = origem.Split(',');
             var destinoCoordenadas = origem.Split(',');
+            var novoID = Guid.NewGuid();
 
-
-            var carona = new Carona(){
-                               ID = Guid.NewGuid(),
-                               Descricao = descricao,
-                               OrigemLatitude = origemCoordenadas[0].Trim(),
+            /*OrigemLatitude = origemCoordenadas[0].Trim(),
                                OrigemLongitude = origemCoordenadas[1].Trim(),
                                DestinoLatitude = destinoCoordenadas[0].Trim(),
-                               DestinoLongitude = destinoCoordenadas[1].Trim()
+                               DestinoLongitude = destinoCoordenadas[1].Trim()*/
+
+            var carona = new Carona(){
+                               ID = novoID,
+                               Descricao = descricao,
+                               HorarioPartida = horarioPartida,
+                               HorarioChegada = horarioChegada
             };
 
             using (ISession secao = NHibernateHelper.OpenSession())

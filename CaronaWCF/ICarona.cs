@@ -18,7 +18,7 @@ namespace CaronaWCF
         Carona GetCarona(string ID);
 
         [OperationContract]
-        string CadastreCarona(string descricao, string origem, string destino);
+        string CadastreCarona(string descricao, string origem, string destino, DateTime horarioPartida, DateTime horarioChegada);
 
         [OperationContract]
         string ExcluaCarona(Carona carona);

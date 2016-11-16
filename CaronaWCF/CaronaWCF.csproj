@@ -68,6 +68,10 @@
       <HintPath>..\packages\NetTopologySuite.IO.1.14.0.1\lib\net45\NetTopologySuite.IO.ShapeFile.Extended.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
       <Private>True</Private>
@@ -99,6 +103,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Carona.cs" />
+    <Compile Include="CaronaAux.cs" />
+    <Compile Include="CaronaAuxMap.cs" />
     <Compile Include="CaronaMap.cs" />
     <Compile Include="DBCaronasDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -106,6 +112,7 @@
       <DependentUpon>DBCaronasDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="ICarona.cs" />
+    <Compile Include="IUsuario.cs" />
     <Compile Include="NHibernateHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CaronaService.cs" />
@@ -115,6 +122,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Usuario.cs" />
+    <Compile Include="UsuarioMap.cs" />
+    <Compile Include="UsuarioService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

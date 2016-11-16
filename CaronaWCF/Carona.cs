@@ -12,18 +12,24 @@ namespace CaronaWCF
         public virtual Guid ID { get; set; }
 
         [DataMember]
+        public virtual Guid IDUsuario { get; set; }
+
+        [DataMember]
         public virtual string Descricao { get; set; }
 
-        [DataMember]
-        public virtual string OrigemLatitude { get; set; }
+        //[DataMember]
+        public virtual SqlGeography Origem { get; set; }
+
+        //[DataMember]
+        public virtual SqlGeography Desino { get; set; }
+
+        //[DataMember]
+        public virtual SqlGeography PontosIntermediarios { get; set; }
 
         [DataMember]
-        public virtual string OrigemLongitude { get; set; }
+        public virtual DateTime HorarioPartida { get; set; }
 
         [DataMember]
-        public virtual string DestinoLatitude { get; set; }
-
-        [DataMember]
-        public virtual string DestinoLongitude { get; set; }
+        public virtual DateTime HorarioChegada { get; set; }
     }
 }

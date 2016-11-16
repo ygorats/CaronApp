@@ -11,3 +11,5 @@ C:\Users\Ygor Santos\Documents\Visual Studio 2015\Projects\CaronaWCF\TesteServic
 C:\Users\Ygor Santos\Documents\Visual Studio 2015\Projects\CaronaWCF\TesteServico\bin\Debug\Iesi.Collections.xml
 C:\Users\Ygor Santos\Documents\Visual Studio 2015\Projects\CaronaWCF\TesteServico\bin\Debug\NHibernate.xml
 C:\Users\Ygor Santos\documents\visual studio 2015\Projects\CaronaWCF\TesteServico\obj\Debug\TesteServico.csprojResolveAssemblyReference.cache
+C:\Users\Ygor Santos\Documents\Visual Studio 2015\Projects\CaronApp\branches\2016.1\TesteServico\bin\Debug\TesteServico.exe.config
+C:\Users\Ygor Santos\Documents\Visual Studio 2015\Projects\CaronApp\branches\2016.1\TesteServico\obj\Debug\TesteServico.pdb
