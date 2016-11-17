@@ -20,9 +20,9 @@ namespace CaronaWCF
         string ExcluaUsuario(string codigo);
 
         [OperationContract]
-        string GetUsuario(string chave);
+        Usuario GetUsuario(string chave);
 
         [OperationContract]
-        string GetUsuarios();
+        IList<Usuario> GetUsuarios();
     }
 }

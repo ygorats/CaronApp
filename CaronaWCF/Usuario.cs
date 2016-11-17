@@ -36,5 +36,9 @@ namespace CaronaWCF
 
         [DataMember]
         public virtual bool PossuiVeiculo { get; set; }
+
+        [DataMember]
+        public virtual int Ativo { get; set; }
+
     }
 }

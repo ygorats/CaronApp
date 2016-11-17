@@ -20,6 +20,7 @@ namespace CaronaWCF
             Map(x => x.EmailSecundario);
             Map(x => x.Telefone);
             Map(x => x.PossuiVeiculo);
+            Map(x => x.Ativo);
 
             Table("USUARIO");
         }

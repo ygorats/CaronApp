@@ -17,7 +17,7 @@ namespace CaronaWCF
 
         public string CadastreUsuario(string nome, string cpf, DateTime dtNascimento, string emailInstitucional, string emailSecundario, string telefone, string senha)
         {
-            string criacaoUsuario, definicaoSenha;
+            string criacaoUsuario = "", definicaoSenha = "";
             var novoUsuario = new Usuario()
             {
                 ID = new Guid(),
@@ -28,16 +28,23 @@ namespace CaronaWCF
                 Telefone = telefone
             };
 
-            using (ISession secao = NHibernateHelper.OpenSession())
+
+            try
             {
-                using (var tran = secao.BeginTransaction())
+                using (ISession secao = NHibernateHelper.OpenSession())
                 {
-                    secao.Save(novoUsuario);
-                    secao.CreateSQLQuery("UPDATE USUARIO SET SENHA = :SENHA WHERE ID = :ID").SetParameter(0, senha).SetParameter(1, novoUsuario.ID);
-                    tran.Commit();
-                    tran.Dispose();
-                    criacaoUsuario = "Usuário criado com sucesso!";
+                    using (var tran = secao.BeginTransaction())
+                    {
+                        secao.Save(novoUsuario);
+                        tran.Commit();
+                        tran.Dispose();
+                        criacaoUsuario = "Usuário criado com sucesso!";
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                //Será a tratativa de CPF já utilizado por outro usuário;
             }
 
             using (ISession secao = NHibernateHelper.OpenSession())
@@ -57,17 +64,37 @@ namespace CaronaWCF
 
         public string ExcluaUsuario(string codigo)
         {
-            throw new NotImplementedException();
+            var usuario = new Usuario()
+            {
+                Codigo = codigo,
+                Ativo = 0
+            };
+            using (ISession secao = NHibernateHelper.OpenSession())
+            {
+                using (var tran = secao.BeginTransaction())
+                {
+                    secao.Update(usuario);
+                    tran.Commit();
+                    tran.Dispose();
+                    return "Usuário inativado com sucesso!";
+                }
+            }
         }
 
-        public string GetUsuario(string chave)
+        public Usuario GetUsuario(string chave)
         {
-            throw new NotImplementedException();
+            using (ISession secao = NHibernateHelper.OpenSession())
+            {
+                return secao.Query<Usuario>().Where(x => (x.Codigo == chave) || (x.Nome.Contains(chave))).FirstOrDefault();
+            }
         }
 
-        public string GetUsuarios()
+        public IList<Usuario> GetUsuarios()
         {
-            throw new NotImplementedException();
+            using (ISession secao = NHibernateHelper.OpenSession())
+            {
+                return secao.Query<Usuario>().ToList();
+            }
         }
 
         
