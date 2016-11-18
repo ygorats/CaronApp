@@ -7,8 +7,9 @@ namespace CaronaWCF
     {
         public CaronaMap()
         {
-            Id(x => x.ID, "ID");
+            Id(x => x.ID, "ID").GeneratedBy.Assigned();
             Map(x => x.Descricao, "descricao");
+            Map(x => x.IDUsuario).Default(string.Empty);
             
             Table("CARONA");
 

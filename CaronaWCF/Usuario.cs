@@ -40,5 +40,8 @@ namespace CaronaWCF
         [DataMember]
         public virtual int Ativo { get; set; }
 
+        [DataMember]
+        public virtual string Senha { get; set; }
+
     }
 }

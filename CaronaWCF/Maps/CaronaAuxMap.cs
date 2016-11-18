@@ -11,11 +11,13 @@ namespace CaronaWCF
     {
         public CaronaAuxMap()
         {
-            Map(x => x.IDCARONA);
+            Id(x => x.IDCARONA).GeneratedBy.Assigned();
             Map(x => x.ORIGEMLATITUDE);
             Map(x => x.ORIGEMLONGITUDE);
             Map(x => x.DESTINOLATITUDE);
             Map(x => x.DESTINOLONGITUDE);
+
+            Table("CARONAAUX");
         }
     }
 }

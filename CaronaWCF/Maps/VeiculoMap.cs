@@ -11,7 +11,7 @@ namespace CaronaWCF
     {
         public VeiculoMap()
         {
-            Map(x => x.ID);
+            Id(x => x.ID);
             Map(x => x.IDUsuario);
             Map(x => x.Placa);
             Map(x => x.Marca);

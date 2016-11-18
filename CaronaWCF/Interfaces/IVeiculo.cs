@@ -17,9 +17,9 @@ namespace CaronaWCF
         string ExcluaVeiculo(string placa);
 
         [OperationContract]
-        Veiculo GetVeiculo(string chave);
+        Veiculo GetVeiculoPelaPlaca(string chave);
 
         [OperationContract]
-        Veiculo GetVeiculo(Guid idUsuario);
+        Veiculo GetVeiculoPeloUsuario(Guid idUsuario);
     }
 }

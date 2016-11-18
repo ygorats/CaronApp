@@ -17,7 +17,7 @@ namespace CaronaWCF
         {
             ISessionFactory sessionFactory = Fluently.Configure()
                 .Database(MsSqlConfiguration.MsSql2008
-                  .ConnectionString(@"Data Source=.\SQLEXPRESS;Initial Catalog=DBCaronas;Persist Security Info=True;User ID=sa; Password=@dmin")
+                  .ConnectionString(@"Data Source=.\SQLEXPRESS;Initial Catalog=DBCaronas;Persist Security Info=True;User ID=sa; Password=1")
                               .ShowSql()
                 )
                .Mappings(m =>

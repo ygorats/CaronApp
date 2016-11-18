@@ -90,6 +90,7 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Spatial, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Spatial.5.7.0\lib\net40\System.Spatial.dll</HintPath>
       <Private>True</Private>
@@ -102,20 +103,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppController.cs" />
     <Compile Include="Carona.cs" />
     <Compile Include="CaronaAux.cs" />
-    <Compile Include="CaronaAuxMap.cs" />
-    <Compile Include="CaronaMap.cs" />
+    <Compile Include="Interfaces\ICaronaAux.cs" />
+    <Compile Include="Maps\CaronaAuxMap.cs" />
+    <Compile Include="Maps\CaronaMap.cs" />
     <Compile Include="DBCaronasDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBCaronasDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ICarona.cs" />
-    <Compile Include="IUsuario.cs" />
+    <Compile Include="Interfaces\ICarona.cs" />
+    <Compile Include="Interfaces\IUsuario.cs" />
+    <Compile Include="Interfaces\IVeiculo.cs" />
     <Compile Include="NHibernateHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CaronaService.cs" />
+    <Compile Include="Services\CaronaAuxService.cs" />
+    <Compile Include="Services\CaronaService.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -123,8 +128,11 @@
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Usuario.cs" />
-    <Compile Include="UsuarioMap.cs" />
-    <Compile Include="UsuarioService.cs" />
+    <Compile Include="Maps\UsuarioMap.cs" />
+    <Compile Include="Services\UsuarioService.cs" />
+    <Compile Include="Veiculo.cs" />
+    <Compile Include="Maps\VeiculoMap.cs" />
+    <Compile Include="Services\VeiculoService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,11 +10,12 @@ namespace CaronaWCF
     [ServiceContract]
     interface IUsuario
     {
-        [OperationContract]
-        string CadastreUsuario(string nome, string cpf, DateTime dtNascimento, string emailInstitucional, string emailSecundario, string telefone, string senha);
+        //[OperationContract]
+        //string CadastreUsuarioDetailed(string nome, string cpf, DateTime dtNascimento, string emailInstitucional, string emailSecundario, string telefone, string senha);
 
         [OperationContract]
-        string CadastreUsuario();
+        [WebInvoke]
+        string CadastreUsuario(Usuario usuario);
 
         [OperationContract]
         string ExcluaUsuario(string codigo);

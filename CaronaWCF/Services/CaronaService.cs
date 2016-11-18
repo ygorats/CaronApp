@@ -9,55 +9,72 @@ namespace CaronaWCF
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
     public class CaronaService : ICarona
     {
-        private readonly ISession _secao;
-        
-        public CaronaService(ISession secao)
-        {
-            _secao = secao;
-        }
-
-        public CaronaService()
-        {
-            _secao = null;
-        }
-
-        public string CadastreCarona(string descricao, string origem, string destino, DateTime horarioPartida, DateTime horarioChegada)
+        public string CadastreCarona(Guid idUsuario, string descricao, string origem, string destino, DateTime horarioPartida, DateTime horarioChegada)
         {
             var origemCoordenadas = origem.Split(',');
-            var destinoCoordenadas = origem.Split(',');
+            var destinoCoordenadas = destino.Split(',');
             var novoID = Guid.NewGuid();
+            var resultado = string.Empty;
 
-            /*OrigemLatitude = origemCoordenadas[0].Trim(),
-                               OrigemLongitude = origemCoordenadas[1].Trim(),
-                               DestinoLatitude = destinoCoordenadas[0].Trim(),
-                               DestinoLongitude = destinoCoordenadas[1].Trim()*/
+            var caronaAux = new CaronaAux()
+            {
+                IDCARONA = novoID,
+                ORIGEMLATITUDE = origemCoordenadas[0].Trim(),
+                ORIGEMLONGITUDE = origemCoordenadas[1].Trim(),
+                DESTINOLATITUDE = destinoCoordenadas[0].Trim(),
+                DESTINOLONGITUDE = destinoCoordenadas[1].Trim()
+            };
 
             var carona = new Carona(){
                                ID = novoID,
+                               IDUsuario = idUsuario,
                                Descricao = descricao,
                                HorarioPartida = horarioPartida,
                                HorarioChegada = horarioChegada
             };
 
-            using (ISession secao = NHibernateHelper.OpenSession())
+            try
             {
-                using (var tran = secao.BeginTransaction())
-                { 
-                    secao.Save(carona);
-                    tran.Commit();
-                    tran.Dispose();
-                    return "Success!";
+                using (ISession secao = NHibernateHelper.OpenSession())
+                {
+                    using (var tran = secao.BeginTransaction())
+                    {
+                        secao.Save(carona);
+                        tran.Commit();
+                        tran.Dispose();
+                        resultado += " Carona gravada com sucesso! ";
+                    }
+                }
+
+                using (ISession secao = NHibernateHelper.OpenSession())
+                {
+                    using (var tran = secao.BeginTransaction())
+                    {
+                        secao.Save(caronaAux);
+                        tran.Commit();
+                        tran.Dispose();
+                        resultado += " Pontos da carona gravados com sucesso! ";
+                    }
                 }
             }
+            catch (Exception e)
+            {
+                resultado += e.Message;
+            }
+
+            return resultado;
         }
 
         public string ExcluaCarona(Carona carona)
         {
-            using (var tran = _secao.BeginTransaction())
+            using (var secao = NHibernateHelper.OpenSession())
             {
-                _secao.Delete(carona);
-                tran.Commit();
-                return carona.ID.ToString();
+                using (var tran = secao.BeginTransaction())
+                {
+                    secao.Delete(carona);
+                    tran.Commit();
+                    return carona.ID.ToString();
+                }
             }
         }
 

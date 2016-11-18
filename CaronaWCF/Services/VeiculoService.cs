@@ -59,7 +59,7 @@ namespace CaronaWCF
             }
         }
 
-        public Veiculo GetVeiculo(Guid idUsuario)
+        public Veiculo GetVeiculoPeloUsuario(Guid idUsuario)
         {
             using (ISession secao = NHibernateHelper.OpenSession())
             {
@@ -67,7 +67,7 @@ namespace CaronaWCF
             }
         }
 
-        public Veiculo GetVeiculo(string placa)
+        public Veiculo GetVeiculoPelaPlaca(string placa)
         {
             using (ISession secao = NHibernateHelper.OpenSession())
             {

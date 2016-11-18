@@ -13,3 +13,15 @@ C:\Users\Ygor Santos\Documents\Visual Studio 2015\Projects\CaronaWCF\TesteServic
 C:\Users\Ygor Santos\documents\visual studio 2015\Projects\CaronaWCF\TesteServico\obj\Debug\TesteServico.csprojResolveAssemblyReference.cache
 C:\Users\Ygor Santos\Documents\Visual Studio 2015\Projects\CaronApp\branches\2016.1\TesteServico\bin\Debug\TesteServico.exe.config
 C:\Users\Ygor Santos\Documents\Visual Studio 2015\Projects\CaronApp\branches\2016.1\TesteServico\obj\Debug\TesteServico.pdb
+C:\Users\Ygor Santos\Documents\Visual Studio 2015\Projects\CaronApp\branches\2016.1\TesteServico\bin\Debug\TesteServico.exe
+C:\Users\Ygor Santos\Documents\Visual Studio 2015\Projects\CaronApp\branches\2016.1\TesteServico\bin\Debug\TesteServico.pdb
+C:\Users\Ygor Santos\Documents\Visual Studio 2015\Projects\CaronApp\branches\2016.1\TesteServico\bin\Debug\Iesi.Collections.dll
+C:\Users\Ygor Santos\Documents\Visual Studio 2015\Projects\CaronApp\branches\2016.1\TesteServico\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Ygor Santos\Documents\Visual Studio 2015\Projects\CaronApp\branches\2016.1\TesteServico\bin\Debug\NHibernate.dll
+C:\Users\Ygor Santos\Documents\Visual Studio 2015\Projects\CaronApp\branches\2016.1\TesteServico\bin\Debug\Iesi.Collections.xml
+C:\Users\Ygor Santos\Documents\Visual Studio 2015\Projects\CaronApp\branches\2016.1\TesteServico\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Ygor Santos\Documents\Visual Studio 2015\Projects\CaronApp\branches\2016.1\TesteServico\bin\Debug\NHibernate.xml
+C:\Users\Ygor Santos\Documents\Visual Studio 2015\Projects\CaronApp\branches\2016.1\TesteServico\obj\Debug\TesteServico.Form1.resources
+C:\Users\Ygor Santos\Documents\Visual Studio 2015\Projects\CaronApp\branches\2016.1\TesteServico\obj\Debug\TesteServico.Properties.Resources.resources
+C:\Users\Ygor Santos\Documents\Visual Studio 2015\Projects\CaronApp\branches\2016.1\TesteServico\obj\Debug\TesteServico.csproj.GenerateResource.Cache
+C:\Users\Ygor Santos\Documents\Visual Studio 2015\Projects\CaronApp\branches\2016.1\TesteServico\obj\Debug\TesteServico.exe

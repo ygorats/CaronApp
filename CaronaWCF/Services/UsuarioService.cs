@@ -10,12 +10,46 @@ namespace CaronaWCF
 {
     class UsuarioService : IUsuario
     {
-        public string CadastreUsuario()
+
+        public string CadastreUsuario(Usuario usuario)
         {
-            return "Not implemented";
+            string criacaoUsuario = "", definicaoSenha = "";
+            
+            try
+            {
+                using (ISession secao = NHibernateHelper.OpenSession())
+                {
+                    using (var tran = secao.BeginTransaction())
+                    {
+                        secao.Save(usuario);
+                        tran.Commit();
+                        tran.Dispose();
+                        criacaoUsuario = "Usuário criado com sucesso!";
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                criacaoUsuario = e.Message;
+                //Será a tratativa de CPF já utilizado por outro usuário;
+            }
+
+            using (ISession secao = NHibernateHelper.OpenSession())
+            {
+                using (var tran = secao.BeginTransaction())
+                {
+                    var query = secao.CreateSQLQuery("UPDATE USUARIO SET SENHA = :SENHA WHERE ID = :ID").SetParameter("SENHA", usuario.Senha, NHibernateUtil.String).SetParameter("ID", usuario.ID, NHibernateUtil.Guid);
+                    query.ExecuteUpdate();
+                    tran.Commit();
+                    tran.Dispose();
+                    definicaoSenha = "Senha definida com sucesso!";
+                }
+            }
+
+            return criacaoUsuario + " " + definicaoSenha;
         }
 
-        public string CadastreUsuario(string nome, string cpf, DateTime dtNascimento, string emailInstitucional, string emailSecundario, string telefone, string senha)
+        /*public string CadastreUsuarioDetailed(string nome, string cpf, DateTime dtNascimento, string emailInstitucional, string emailSecundario, string telefone, string senha)
         {
             string criacaoUsuario = "", definicaoSenha = "";
             var novoUsuario = new Usuario()
@@ -60,7 +94,7 @@ namespace CaronaWCF
             }
 
             return criacaoUsuario + " " + definicaoSenha;
-        }
+        }*/
 
         public string ExcluaUsuario(string codigo)
         {

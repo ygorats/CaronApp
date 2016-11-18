@@ -11,8 +11,8 @@ namespace CaronaWCF
     {
         public UsuarioMap()
         {
-            Id(x => x.Codigo);
-            Map(x => x.ID);
+            Id(x => x.ID).GeneratedBy.Assigned();
+            Map(x => x.Codigo);
             Map(x => x.Cpf);
             Map(x => x.Nome);
             Map(x => x.DtNascimento);
