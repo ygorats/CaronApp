@@ -9,7 +9,7 @@ namespace CaronaWCF
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
     public class CaronaService : ICarona
     {
-        public string CadastreCarona(Guid idUsuario, string descricao, string origem, string destino, DateTime horarioPartida, DateTime horarioChegada)
+        public string CadastreCarona(Guid idUsuario, string descricao, string origem, string destino, string[] intermedios, DateTime horarioPartida, DateTime horarioChegada)
         {
             var origemCoordenadas = origem.Split(',');
             var destinoCoordenadas = destino.Split(',');
@@ -32,6 +32,20 @@ namespace CaronaWCF
                                HorarioPartida = horarioPartida,
                                HorarioChegada = horarioChegada
             };
+
+            //Criação do SQL de geração do campo geography que armazena os multipontos intermediarios
+            var sqlPontosIntermediario = "EXEC GERA_PONTOS_INTERMEDIARIOS @pontos = :PONTOSINTERMEDIARIOS, @IDUSUARIO = :ID";
+            string pontosIntermediarios = string.Empty;
+            foreach(var ponto in intermedios)
+            {
+                var coordenadas = ponto.Split(',');
+                pontosIntermediarios += coordenadas[1].Trim() + " " + coordenadas[0].Trim() + ",";
+            }
+            pontosIntermediarios = pontosIntermediarios.Remove(pontosIntermediarios.Length - 1);
+            /*sqlPontosIntermediario += pontosIntermediarios;
+            sqlPontosIntermediario += ")', 4618)";
+            sqlPontosIntermediario += " WHERE ID = " + novoID;*/
+            //----------------------------------------------
 
             try
             {
@@ -56,6 +70,20 @@ namespace CaronaWCF
                         resultado += " Pontos da carona gravados com sucesso! ";
                     }
                 }
+
+                using (ISession secao = NHibernateHelper.OpenSession())
+                {
+                    using (var tran = secao.BeginTransaction())
+                    {
+                        var query = secao.CreateSQLQuery("EXEC GERA_PONTOS_INTERMEDIARIOS @pontos = :PONTOSINTERMEDIARIOS, @IDUSUARIO = :ID")
+                                            .SetParameter("PONTOSINTERMEDIARIOS", pontosIntermediarios, NHibernateUtil.String)
+                                            .SetParameter("ID", novoID, NHibernateUtil.Guid);
+                        query.ExecuteUpdate();
+                        tran.Commit();
+                        tran.Dispose();
+                        resultado += " Pontos intermediarios da carona gravados com sucesso! ";
+                    }
+                }
             }
             catch (Exception e)
             {
@@ -78,7 +106,7 @@ namespace CaronaWCF
             }
         }
 
-        public Carona GetCarona(string ID)
+        public Carona GetCarona(Guid ID)
         {
             using (ISession secao = NHibernateHelper.OpenSession())
             {

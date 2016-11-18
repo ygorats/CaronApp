@@ -33,10 +33,10 @@ namespace CaronaWCF
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 //Será a tratativa de veículo com aquela placa já utilizado por outro usuário;
-                return "Erro no cadastro.";
+                return "Erro no cadastro. " + e.Message;
             }
         }
 
