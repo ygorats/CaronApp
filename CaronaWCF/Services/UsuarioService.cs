@@ -14,7 +14,9 @@ namespace CaronaWCF
         public string CadastreUsuario(Usuario usuario)
         {
             string criacaoUsuario = "", definicaoSenha = "";
-            
+
+            usuario.ID = Guid.NewGuid();
+
             try
             {
                 using (ISession secao = NHibernateHelper.OpenSession())
