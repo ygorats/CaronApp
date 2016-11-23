@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NHibernate;
 using NHibernate.Linq;
+using Newtonsoft.Json;
 
 namespace CaronaWCF
 {
@@ -14,11 +15,27 @@ namespace CaronaWCF
         public string CadastreUsuario(Usuario usuario)
         {
             string criacaoUsuario = "", definicaoSenha = "";
+            var codigo = "-1";
 
             usuario.ID = Guid.NewGuid();
 
             try
             {
+                using (ISession secao = NHibernateHelper.OpenSession())
+                {
+                    var dominioEmailUsuario = usuario.EmailInstitucional.Split('@').Last();
+                    var consutaDominioEmail = secao.CreateSQLQuery(
+                                                "SELECT CODIGO FROM DOMINIOS_EMAIL" +
+                                                "WHERE UPPER(DOMINIOEMAIL) = UPPER(:DOMINIO)")
+                                                .SetParameter("DOMINIO", dominioEmailUsuario);
+                    var listaCodigos = consutaDominioEmail.List<string>();
+                    if (listaCodigos. Count == 0)
+                    {
+                        throw new Exception("O domínio de email do usuário não está cadastrado");
+                    }
+                }
+
+            
                 using (ISession secao = NHibernateHelper.OpenSession())
                 {
                     using (var tran = secao.BeginTransaction())
@@ -49,6 +66,20 @@ namespace CaronaWCF
             }
 
             return criacaoUsuario + " " + definicaoSenha;
+        }
+
+        public string CadastreUsuarioJson(string json)
+        {
+            try
+            {
+                dynamic usuario = JsonConvert.DeserializeObject<Usuario>(json);
+                if (usuario == null) throw new Exception("Não foi possível obter o Usuario");
+                return CadastreUsuario(usuario);
+            }
+            catch(Exception e)
+            {
+                return "Houve um erro no cadastro do usuário: " + e.Message;
+            }
         }
 
         /*public string CadastreUsuarioDetailed(string nome, string cpf, DateTime dtNascimento, string emailInstitucional, string emailSecundario, string telefone, string senha)

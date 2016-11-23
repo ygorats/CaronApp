@@ -106,6 +106,7 @@
     <Compile Include="AppController.cs" />
     <Compile Include="Carona.cs" />
     <Compile Include="CaronaAux.cs" />
+    <Compile Include="CaronaTemp.cs" />
     <Compile Include="Interfaces\ICaronaAux.cs" />
     <Compile Include="Maps\CaronaAuxMap.cs" />
     <Compile Include="Maps\CaronaMap.cs" />

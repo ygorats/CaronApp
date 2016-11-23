@@ -18,7 +18,16 @@ namespace CaronaWCF
         Carona GetCarona(Guid ID);
 
         [OperationContract]
-        string CadastreCarona(Guid idUsuario, string descricao, string origem, string destino, string[] intermedios, DateTime horarioPartida, DateTime horarioChegada);
+        IList<Carona> BuscaCaronasJson(string json);
+
+        //[OperationContract]
+        //string CadastreCarona(Guid idUsuario, string descricao, string origem, string destino, string[] intermedios, DateTime horarioPartida, DateTime horarioChegada);
+
+        [OperationContract]
+        string CadastreCaronaJson(string json);
+
+        [OperationContract]
+        string CadastreCarona(CaronaTemp carona);
 
         [OperationContract]
         string ExcluaCarona(Carona carona);

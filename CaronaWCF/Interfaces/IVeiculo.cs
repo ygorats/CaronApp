@@ -10,8 +10,14 @@ namespace CaronaWCF
     [ServiceContract]
     interface IVeiculo
     {
+        //[OperationContract]
+        //string CadastreVeiculo(Guid idUsuario, string placa, string marca, string modelo);
+
         [OperationContract]
-        string CadastreVeiculo(Guid idUsuario, string placa, string marca, string modelo);
+        string CadastreVeiculo(Veiculo veiculo);
+
+        [OperationContract]
+        string CadastreVeiculoJson(string json);
 
         [OperationContract]
         string ExcluaVeiculo(string placa);

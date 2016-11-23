@@ -18,6 +18,10 @@ namespace CaronaWCF
         string CadastreUsuario(Usuario usuario);
 
         [OperationContract]
+        [WebInvoke]
+        string CadastreUsuarioJson(string json);
+
+        [OperationContract]
         string ExcluaUsuario(string codigo);
 
         [OperationContract]
