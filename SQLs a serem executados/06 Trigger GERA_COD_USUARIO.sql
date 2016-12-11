@@ -27,7 +27,7 @@ BEGIN
 									   I.DTNASCIMENTO,
 									   I.EMAILINSTITUCIONAL,
 									   I.EMAILSECUNDARIO,
-									   0,
+									   1,
 									   I.TELEFONE,
 									   I.ATIVO,
 									   I.SENHA
